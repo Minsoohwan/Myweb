@@ -278,7 +278,7 @@ const Introduce = ({ sideBarState }: { sideBarState: boolean }) => {
                                 안녕하세요. 스스로 공부하고 학습하며 개발자를
                                 꿈꾸는 민수환입니다. React와 Typescript를
                                 기반으로 Frontend 개발을 공부하고 있습니다.
-                                최대한 다양한 기술을 사용하고 상황에 맞는 기술을
+                                최대한 다양한 기술을 익혀 상황에 맞는 기술을
                                 적용하여 사용자 친화적인 서비스를 만드는 것을
                                 목표로 하고있습니다.
                             </p>
