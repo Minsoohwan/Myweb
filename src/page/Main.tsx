@@ -11,6 +11,7 @@ const CardOutline = styled.div`
     position: relative;
     left: ${(props: props) => props.location};
     width: 80%;
+    height: 100%;
     max-width: 800px;
     display: flex;
     flex-direction: column;
@@ -18,7 +19,8 @@ const CardOutline = styled.div`
     align-items: center;
     gap: 20px;
     transition: 0.7s ease;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     ::-webkit-scrollbar {
         display: none;
     }
@@ -137,28 +139,10 @@ function Main({ sideBarState }: { sideBarState: boolean }) {
                                 }, 1000);
                             }}
                         >
-                            <Img src="/img/이력서preview.png" alt="0" />
+                            <Img src="/img/민수환_profile.png" alt="0" />
                         </ImgBox>
                     </SplideSlide>
-                    <SplideSlide
-                        style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <ImgBox
-                            isMobile={isWidthMobile}
-                            onClick={() => {
-                                setIsClick(true);
-                                setTimeout(() => {
-                                    nav('/introduce');
-                                }, 1000);
-                            }}
-                        >
-                            <Img src="/img/자기소개서preview.png" alt="0" />
-                        </ImgBox>
-                    </SplideSlide>
+
                     <SplideSlide
                         style={{
                             display: 'flex',

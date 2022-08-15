@@ -18,7 +18,8 @@ const Outline = styled.div`
     background: linear-gradient(180deg, #daedff, #5da0f7);
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
     box-sizing: border-box;
     ::-webkit-scrollbar {
         display: none;
@@ -92,7 +93,7 @@ const IconBox = styled.div`
     row-gap: 10px;
     /* padding: 0 10px; */
 `;
-const Icon = styled.div`
+export const Icon = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -111,7 +112,7 @@ const Text = styled.p`
     text-align: center;
     font-weight: bold;
 `;
-const IconTextBox = styled.div`
+export const IconTextBox = styled.div`
     width: 65px;
     height: 62px;
     display: flex;
@@ -125,6 +126,10 @@ const IconTextBox = styled.div`
         margin: 0;
         white-space: pre-line;
     }
+`;
+const Home = styled(IconTextBox)`
+    position: absolute;
+    left: 0px;
 `;
 function App() {
     const [sideBarState, setSideBarState] = useState<boolean>(true);
@@ -140,7 +145,15 @@ function App() {
                         <BsArrowRightShort size="20" />
                     )}
                 </OpenUI>
+
                 <ScrollDiv>
+                    <Home
+                        onClick={() => nav('/')}
+                        style={{ cursor: 'pointer' }}
+                    >
+                        <AiFillHome size="20" />
+                        <p>HOME</p>
+                    </Home>
                     <ProfileImg />
                     <Text
                         fontSize="30px"
@@ -214,14 +227,6 @@ function App() {
                             <p>Github</p>
                         </IconTextBox>
                     </IconBox>
-                    <br />
-                    <IconTextBox
-                        onClick={() => nav('/')}
-                        style={{ cursor: 'pointer' }}
-                    >
-                        <AiFillHome size="45" />
-                        <p>HOME</p>
-                    </IconTextBox>
                 </ScrollDiv>
             </SideBar>
             <Routes>
@@ -231,21 +236,11 @@ function App() {
                 />
                 <Route
                     path="/profile"
-                    element={
-                        <Introduce
-                            sideBarState={sideBarState}
-                            img="/img/이력서.svg"
-                        />
-                    }
+                    element={<Introduce sideBarState={sideBarState} />}
                 />
                 <Route
                     path="/introduce"
-                    element={
-                        <Introduce
-                            sideBarState={sideBarState}
-                            img="/img/자기소개서.svg"
-                        />
-                    }
+                    element={<Introduce sideBarState={sideBarState} />}
                 />
                 <Route
                     path="/project"
